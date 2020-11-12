@@ -1,0 +1,9 @@
+build the .netcore webapp
+dotnet new webApp -o HRMC --no-https
+cd HRMC
+dotnet publish -c Release -o g:\AAA\YA\app 
+create dockerfile using "Dockerfile"
+create a .dockerignore to ignore certain files
+docker build -t HRMC .
+docker run -d -p 8080:80 --mynewapp  testme
+docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress}}" theapp
