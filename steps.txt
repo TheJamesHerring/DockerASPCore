@@ -1,10 +1,17 @@
+Raw Steps to repeat:
+
 build the .netcore webapp
-dotnet new webApp -o HRMC --no-https
-cd HRMC
-dotnet publish -c Release -o g:\AAA\YA\app 
-create dockerfile using "Dockerfile"
-create a .dockerignore to ignore certain files
-docker build -t HRMC .
-docker run -d -p 8080:80 --mynewapp  testme
-docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress}}" theapp
-yet another push
+-dotnet new webApp -o HRMC --no-https
+-cd HRMC
+--Not Necessary
+    --dotnet publish -c Release -o g:\AAA\YA\app 
+-create dockerfile using "Dockerfile" in the same root
+    -the dockerfile contains the dotnet publish command
+-create a .dockerignore to ignore certain files/folders
+    - bin/
+    - obj/
+-docker build -t HRMC .
+-docker run -d -p 8080:80 --mynewapp  testme
+Retrive the IP Address for docker, otherwise use localhost and the port assigned in Dockerfile
+    -docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress}}" theapp
+
